@@ -17,7 +17,7 @@ public class AppUser {
     @Column(columnDefinition = "jsonb", nullable = false)
     private String profile = "{}";
 
-    protected AppUser() {} // JPA
+    protected AppUser() {}
 
     public AppUser(String email, String profile) {
         this.email = email;

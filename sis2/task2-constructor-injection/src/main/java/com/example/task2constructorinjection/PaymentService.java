@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 public class PaymentService {
     private final PaymentGateway gateway;
 
-    // Prefer constructor injection; @Autowired optional on single constructor
     public PaymentService(@Qualifier("stripeGateway") PaymentGateway gateway) {
         this.gateway = gateway;
     }

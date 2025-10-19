@@ -18,7 +18,7 @@ public class OrderService {
 
     @Transactional
     public Order create(String item, int qty) {
-        var o = repo.save(new Order(item, qty)); // uses our constructor
+        var o = repo.save(new Order(item, qty));
         events.publishEvent(new OrderCreated(o.getId(), item, qty));
         return o;
     }

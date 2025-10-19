@@ -1,0 +1,15 @@
+services:
+  redpanda:
+    image: redpandadata/redpanda:v24.1.10
+    platform: linux/arm64
+    container_name: sis5-redpanda
+    command:
+      - redpanda start
+      - --smp=1
+      - --overprovisioned
+      - --check=false
+      - --node-id=1
+      - --kafka-addr=PLAINTEXT://0.0.0.0:9092
+      - --advertise-kafka-addr=PLAINTEXT://localhost:9092
+    ports:
+      - "9092:9092"

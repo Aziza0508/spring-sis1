@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: sis5-kafka
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: sis5-consumers
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+    listener:
+      missing-topics-fatal: false
+
+app:
+  kafka:
+    topic: books.created
